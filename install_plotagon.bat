@@ -143,7 +143,8 @@ echo Feel free to move it wherever you want.
 start "" "%~dp0..\..\Plotagon-Studio"
 echo Please press the 6 button and the enter key on your keyboard to clear this installation screen.
 goto wrapperidle
-
+:: this stuff is for just in case the plotagon studio installer gets downloaded by accident thinking that it's the vyond legacy offline installer when it's really not.
+:: i guess that i can take it from here.
 :download_vyond
 cls
 echo Enter 3 to install Vyond Legacy Offline (stable)
