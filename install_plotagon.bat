@@ -1,7 +1,7 @@
-:: Vyond Legacy Offline Installer
+:: Plotagon Studio Installer
 :: Author: joseph the animator#2292
 :: License: MIT
-title Vyond Legacy Offline Installer [Initializing...]
+title Plotagon Studio Installer [Initializing...]
 
 ::::::::::::::::::::
 :: Initialization ::
@@ -23,7 +23,7 @@ pushd "%~dp0"
 :: Dependency Check ::
 ::::::::::::::::::::::
 
-title Vyond Legacy Offline Installer [Checking for Git...]
+title Plotagon Studio Installer [Checking for Git...]
 echo Checking for Git installation...
 
 :: Preload variables
@@ -45,7 +45,7 @@ popd
 ::::::::::::::::::::::::
 
 if !GIT_DETECTED!==n (
-	title Vyond Legacy Offline Installer [Installing Git...]
+	title Plotagon Studio Installer [Installing Git...]
 	echo:
 	echo Installing Git...
 	echo:
@@ -56,11 +56,11 @@ if !GIT_DETECTED!==n (
 		echo:
 		echo ERROR
 		echo:
-		echo Vyond Legacy Offline needs to install Git.
+		echo Plotagon Studio needs to install Git.
 		echo To do this, the installer must be started with Admin rights.
 		echo:
 		echo Close this window and re-open the installer as an Admin.
-		echo ^(right-click install_vyond.bat and click "Run as Administrator"^)
+		echo ^(right-click install_plotagon.bat and click "Run as Administrator"^)
 		pause
 		exit
 		)
@@ -72,7 +72,7 @@ if !GIT_DETECTED!==n (
 	:: Install Git
 	if not exist "git_installer.exe" (
 		echo We have a problem. The Git installer doesn't exist.
-		echo A normal copy of the Vyond Legacy Offline installer
+		echo A normal copy of the Plotagon Studio installer
 		echo should come with one.
 		echo You should be able to find a copy on this website:
 		echo https://git-scm.com/downloads
@@ -80,7 +80,7 @@ if !GIT_DETECTED!==n (
 	)
 	echo Proper Git installation doesn't seem possible to do automatically.
 	echo You can just keep clicking next until it finishes,
-	echo and the Vyond installer will continue once it closes.
+	echo and the Plotagon installer will continue once it closes.
 	git_installer.exe
 	goto git_installed
 	
@@ -94,7 +94,7 @@ if !ADMINREQUIRED!==y (
 	color 20
 	cls
 	echo:
-	echo Vyond Legacy Offline no longer needs Admin rights,
+	echo Plotagon Studio no longer needs Admin rights,
 	echo please restart normally by double-clicking.
 	echo:
 	pause
@@ -105,15 +105,15 @@ if !ADMINREQUIRED!==y (
 :: Post-Initialization ::
 :::::::::::::::::::::::::
 
-title Vyond Legacy Offline Installer
+title Plotagon Studio Installer
 :cls
 cls
 
-echo Vyond Legacy Offline Installer
-echo Project lead by Fanimation36. Installer is created by Joseph Animate 2021.
+echo Plotagon Studio Installer
+echo Project lead by Plotagon. Installer is created by Joseph Animate 2021.
 echo:
-echo Enter 1 to install Vyond Legacy Offline (stable)
-echo Enter 2 to install Vyond Legacy Offline (beta)
+echo Enter 1 to install Plotagon Studio
+echo Enter 2 to install Vyond Legacy Offline (if downloaded on accident thinking this is a vyond legacy offline installer)
 echo Enter 0 to close the installer
 :wrapperidle
 echo:
@@ -124,10 +124,42 @@ echo:
 
 set /p CHOICE=Choice:
 if "!choice!"=="0" goto exit
-if "!choice!"=="1" goto download
-if "!choice!"=="2" goto download_beta
-if "!choice!"=="3" goto cls
+if "!choice!"=="1" goto download_plotagon
+if "!choice!"=="2" goto download_vyond
+if "!choice!"=="3" goto download
+if "!choice!"=="4" goto download_beta
+if "!choice!"=="5" goto back
+if "!choice!"=="6" goto cls
 echo Time to choose. && goto wrapperidle
+
+:download_plotagon
+cls
+pushd "%~dp0..\..\"
+echo Cloning repository from GitHub...
+git clone https://github.com/josephcrosmanplays532/Plotagon-Studio.git
+cls
+echo Vyond Legacy Offline (stable) has been installed^^!
+echo Feel free to move it wherever you want.
+start "" "%~dp0..\..\Plotagon-Studio"
+echo Please press the 6 button and the enter key on your keyboard to clear this installation screen.
+goto wrapperidle
+
+:download_vyond
+cls
+echo Enter 3 to install Vyond Legacy Offline (stable)
+echo Enter 4 to install Vyond Legacy Offline (beta)
+echo Enter 5 to go back
+goto wrapperidle
+
+:back
+cls
+echo Plotagon Studio Installer
+echo Project lead by Plotagon. Installer is created by Joseph Animate 2021.
+echo:
+echo Enter 1 to install Plotagon Studio
+echo Enter 2 to install Vyond Legacy Offline (if downloaded on accident thinking this is a vyond legacy offline installer)
+echo Enter 0 to close the installer
+goto wrapperidle
 
 :download
 cls
@@ -138,7 +170,7 @@ cls
 echo Vyond Legacy Offline (stable) has been installed^^!
 echo Feel free to move it wherever you want.
 start "" "%~dp0..\..\Vyond-Legacy-Offline"
-echo Please press the 3 button and the enter key on your keyboard to clear this installation screen.
+echo Please press the 6 button and the enter key on your keyboard to clear this installation screen.
 goto wrapperidle
 
 :download_beta
@@ -147,10 +179,10 @@ pushd "%~dp0..\..\"
 echo Cloning repository from GitHub...
 git clone https://github.com/josephcrosmanplays532/Vyond-Legacy-Offline-Beta.git
 cls
-echo Vyond Legacy Offline (beta) has been installed^^!
+echo Vyond Legacy Offline (stable) has been installed^^!
 echo Feel free to move it wherever you want.
 start "" "%~dp0..\..\Vyond-Legacy-Offline-Beta"
-echo Please press the 3 button and the enter key on your keyboard to clear this installation screen.
+echo Please press the 6 button and the enter key on your keyboard to clear this installation screen.
 goto wrapperidle
 
 :exit
