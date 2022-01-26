@@ -179,7 +179,7 @@ pushd "%~dp0..\..\"
 echo Cloning repository from GitHub...
 git clone https://github.com/josephcrosmanplays532/Vyond-Legacy-Offline-Beta.git
 cls
-echo Vyond Legacy Offline (stable) has been installed^^!
+echo Vyond Legacy Offline (beta) has been installed^^!
 echo Feel free to move it wherever you want.
 start "" "%~dp0..\..\Vyond-Legacy-Offline-Beta"
 echo Please press the 6 button and the enter key on your keyboard to clear this installation screen.
