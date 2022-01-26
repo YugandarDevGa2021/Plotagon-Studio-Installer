@@ -138,7 +138,7 @@ pushd "%~dp0..\..\"
 echo Cloning repository from GitHub...
 git clone https://github.com/josephcrosmanplays532/Plotagon-Studio.git
 cls
-echo Vyond Legacy Offline (stable) has been installed^^!
+echo Plotagon Studio has been installed^^!
 echo Feel free to move it wherever you want.
 start "" "%~dp0..\..\Plotagon-Studio"
 echo Please press the 6 button and the enter key on your keyboard to clear this installation screen.
